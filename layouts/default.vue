@@ -20,7 +20,7 @@ export default {
 
 <style scoped lang="scss">
 .container{
-    margin: 2rem;
+    margin: 2rem 2%;
 }
 </style>
 

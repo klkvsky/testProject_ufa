@@ -5,7 +5,9 @@
       <priceSort />
       <materialSort />
     </div>
-    <card />
+    <div class="cardRow">
+      <card :item="item" v-for="item in catalog" :key="item.id"/>
+    </div>
   </main>
 </template>
 
@@ -14,12 +16,19 @@ import priceSort from '~/components/priceSort.vue'
 import materialSort from '~/components/materialSort.vue'
 import card from '~/components/card.vue'
 
+import catalog from '~/static/json/items.json';
+
 export default {
   layout: 'default',
   components: {
     priceSort,
     materialSort,
     card
+  },
+  data() {
+    return {
+      catalog
+    }
   },
 }
 </script>
@@ -39,7 +48,12 @@ main {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 24px;
-    margin-top: 32px;
+    margin-top: calc(32px - .5rem);
+  }
+
+  .cardRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 </style>

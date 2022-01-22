@@ -12,7 +12,7 @@
           viewBox="0 0 18 11"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          :class="{active: menuToggle}"
+          :class="{ active: menuToggle }"
         >
           <path
             fill-rule="evenodd"
@@ -23,18 +23,22 @@
         </svg>
       </div>
       <div class="sortRow__item__menu__options" :class="{ active: menuToggle }">
-        <span> Металл </span>
-        <span> Дерево </span>
+        <span v-for="material in materialList" :key="material.id">
+          {{ material.name }}
+        </span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import materialList from '~/static/json/materials.json'
+
 export default {
   data() {
     return {
       menuToggle: false,
+      materialList,
     }
   },
   methods: {
@@ -73,17 +77,17 @@ export default {
       cursor: pointer;
       transition: 0.1s all ease-in-out;
 
-      svg{
+      svg {
+        transition: 0.2s all ease-in-out;
+        &.active {
+          transform: rotate(180deg);
           transition: 0.2s all ease-in-out;
-          &.active{
-              transform: rotate(180deg);
-              transition: 0.2s all ease-in-out;
-          }
+        }
       }
 
-      &:hover{
-          background-color: #dadada;
-          transition: 0.15s all ease-in-out;
+      &:hover {
+        background-color: #dadada;
+        transition: 0.15s all ease-in-out;
       }
     }
 
@@ -105,7 +109,8 @@ export default {
         transform: translateY(0);
         opacity: 1;
         z-index: 10;
-        transition: 0.2s transform ease-in-out, 0.2s opacity ease-in-out, 0.001s z-index ease-in-out;
+        transition: 0.2s transform ease-in-out, 0.2s opacity ease-in-out,
+          0.001s z-index ease-in-out;
       }
 
       span {
