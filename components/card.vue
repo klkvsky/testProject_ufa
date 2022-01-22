@@ -1,0 +1,155 @@
+<template>
+  <div class="card">
+    <div class="card__image">
+      <img
+        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.vKW87b2mDxaoh68mRZ_YfwHaHa%26pid%3DApi&f=1"
+      />
+    </div>
+    <div class="card__body">
+      <div class="card__body__txt">
+        <p>L422WH</p>
+        <h4>Ручка дверная</h4>
+        <div class="card__body__txt__price">
+          <h6 class="card__body__txt__price__old">400₽</h6>
+          <h6 class="card__body__txt__price__new">355₽</h6>
+        </div>
+      </div>
+      <div class="card__body__cta">
+        <div class="card__body__cta__cart">
+          <svg
+            width="19"
+            height="18"
+            viewBox="0 0 19 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M3.66412 1.80229C3.50428 1.80194 3.3502 1.82003 3.20378 1.85443C3.00307 1.41204 2.73794 1.01515 2.4364 0.713604C1.92459 0.201799 1.1174 0 0 0V1.8C0.682603 1.8 1.07541 1.8982 1.1636 1.9864C1.50378 2.32657 1.8 3.01776 1.8 3.6L1.80905 3.72728L2.69093 9.90046C1.21532 9.97702 0.0721779 11.1229 0.00110572 12.5554L0 13.5C0.0871391 14.9795 1.22648 16.1177 2.64892 16.1985L2.85323 16.1989C3.22356 17.2481 4.22398 18 5.4 18C6.5756 18 7.57571 17.2487 7.94636 16.2H10.0536C10.4243 17.2487 11.4244 18 12.6 18C14.0912 18 15.3 16.7912 15.3 15.3C15.3 13.8088 14.0912 12.6 12.6 12.6C11.4244 12.6 10.4243 13.3513 10.0536 14.4H7.94636C7.57571 13.3513 6.5756 12.6 5.4 12.6C4.2244 12.6 3.22429 13.3513 2.85364 14.4H2.7C2.24101 14.3725 1.82928 13.9612 1.79838 13.4461L1.8 12.6C1.82427 12.1332 2.23318 11.7243 2.7446 11.6989L4.52132 11.6993L4.5342 11.7H13.6052L13.738 11.6578C14.4204 11.4413 14.9667 10.9275 15.2253 10.2623L15.3201 10.0746L15.6282 9.46429C15.9469 8.83253 16.2656 8.19968 16.5762 7.58142C17.3369 6.06697 17.8153 5.1045 17.9213 4.86815C18.4654 3.65441 17.3632 2.72022 16.2366 2.70032L3.66412 1.80229ZM13.2924 9.89997H4.60154C4.54375 9.88391 4.49972 9.83495 4.4911 9.77399L3.60919 3.60063L16.104 4.4954C15.8854 4.94126 15.4879 5.73762 14.9676 6.77345L14.9546 6.79941C14.6576 7.39065 14.3393 8.02262 14.0211 8.65354L13.7134 9.26309L13.5968 9.49393L13.5529 9.59597C13.5058 9.72695 13.4125 9.83459 13.2924 9.89997ZM12.6 16.1999C13.097 16.1999 13.5 15.797 13.5 15.2999C13.5 14.8029 13.097 14.3999 12.6 14.3999C12.1029 14.3999 11.7 14.8029 11.7 15.2999C11.7 15.797 12.1029 16.1999 12.6 16.1999ZM6.3 15.2999C6.3 15.797 5.89706 16.1999 5.4 16.1999C4.90294 16.1999 4.5 15.797 4.5 15.2999C4.5 14.8029 4.90294 14.3999 5.4 14.3999C5.89706 14.3999 6.3 14.8029 6.3 15.2999Z"
+              fill="black"
+            />
+          </svg>
+        </div>
+        <div class="card__body__cta__fav">
+          <svg
+            width="20"
+            height="19"
+            viewBox="0 0 20 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M14.0979 1.44916e-05C12.795 0 11.9551 0.155217 10.9924 0.626465C10.6359 0.800937 10.3015 1.01105 9.99097 1.25618C9.69237 1.0248 9.37133 0.824326 9.02963 0.655321C8.04819 0.169898 7.16525 0 5.90909 0C2.54479 0 0.0999985 2.78754 0.0999985 6.40789C0.0999985 9.14198 1.62445 11.7831 4.46395 14.3369C5.9544 15.6774 7.85739 17.004 9.22024 17.7097L10 18.1135L10.7798 17.7097C12.1426 17.004 14.0456 15.6774 15.536 14.3369C18.3755 11.7831 19.9 9.14198 19.9 6.40789C19.9 2.82586 17.4322 0.0138225 14.0979 1.44916e-05ZM18.1 6.40793C18.1 8.54995 16.8276 10.7544 14.3324 12.9986C12.972 14.2221 11.2231 15.4449 10 16.0864C8.77698 15.4449 7.02808 14.2221 5.66769 12.9986C3.17248 10.7544 1.90004 8.54995 1.90004 6.40793C1.90004 3.73298 3.59532 1.80004 5.90913 1.80004C6.9079 1.80004 7.52336 1.91847 8.23166 2.2688C8.65005 2.47573 9.01983 2.74897 9.33992 3.09043L10.0021 3.79687L10.6583 3.08483C10.9856 2.72969 11.3609 2.45023 11.7838 2.24322C12.4713 1.90668 13.0483 1.80004 14.0942 1.80004C16.3794 1.80952 18.1 3.7701 18.1 6.40793Z"
+              fill="black"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {}
+</script>
+<style scoped lang="scss">
+.card {
+  margin-top: 2rem;
+  width: 336px;
+  height: 352px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 237px 115px;
+
+  border: 1px solid #eeeeee;
+
+  &__image {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 238px;
+      height: 237px;
+      object-fit: cover;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    padding: 1rem;
+
+    &__txt {
+      p {
+        font-weight: 400;
+        font-size: 10px;
+        color: #888888;
+      }
+
+      h4 {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
+        color: #000000;
+        margin-top: 6px;
+      }
+
+      &__price {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 9.14px;
+
+        margin-top: 9px;
+
+        h6 {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+        }
+
+        &__old {
+          text-decoration: line-through;
+          color: #888888;
+        }
+      }
+    }
+
+    &__cta {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+
+      &__cart {
+        svg {
+          opacity: 0;
+          transition: 0.2s all ease-in-out;
+        }
+      }
+
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &:hover {
+    .card__body__cta__cart {
+      svg {
+        opacity: 1;
+        transition: 0.2s all ease-in-out;
+      }
+    }
+  }
+}
+</style>
