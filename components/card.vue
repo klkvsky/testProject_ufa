@@ -141,6 +141,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+
     img {
       width: 238px;
       height: 237px;
@@ -271,6 +272,53 @@ export default {
         transition: 0.2s all ease-in-out;
       }
     }
+  }
+
+  @media (max-width: 767.98px) {
+    width: 95%;
+    // height: unset;
+    // grid-template-rows: 237px 130px;
+
+    &__image {
+      padding: .5rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &__body{
+      padding: .5rem;
+      padding-bottom: 1rem;
+      flex-direction: row;
+      align-items: flex-end;
+
+      h4{
+        width: 150%;
+      }
+
+      &__txt{
+        &__price{
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      &__cta{
+        margin-top: .5rem;
+        &__cart{
+          svg{
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 413px) {
+    width: 90%;
   }
 }
 </style>

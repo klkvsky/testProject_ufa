@@ -1,14 +1,12 @@
 <template>
-  <div class="sortRow__item">
+  <div class="sortRow__item" tabindex="1" @blur="unfocused">
     <p>Материал</p>
 
     <div class="sortRow__item__menu" @click="toggleMenu">
       <div class="sortRow__item__menu__current">
-        {{this.$store.state.currentMaterial.name}}
+        {{ this.$store.state.currentMaterial.name }}
 
         <svg
-          width="18"
-          height="11"
           viewBox="0 0 18 11"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +21,11 @@
         </svg>
       </div>
       <div class="sortRow__item__menu__options" :class="{ active: menuToggle }">
-        <span @click="changeMaterial(material)" v-for="material in materialList" :key="material.id">
+        <span
+          @click="changeMaterial(material)"
+          v-for="material in materialList"
+          :key="material.id"
+        >
           {{ material.name }}
         </span>
       </div>
@@ -45,16 +47,23 @@ export default {
     toggleMenu() {
       this.menuToggle = !this.menuToggle
     },
-    changeMaterial(material){
-      this.$store.commit("changeMaterial", material);
-    }
+    changeMaterial(material) {
+      this.$store.commit('changeMaterial', material)
+    },
+    unfocused() {
+      this.menuToggle = false
+    },
   },
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .sortRow__item {
   width: 288px;
+
+  &:focus {
+    outline: none;
+  }
 
   p {
     color: #4f4f4f;
@@ -82,6 +91,9 @@ export default {
 
       svg {
         transition: 0.2s all ease-in-out;
+        width: 18px;
+        height: 11px;
+
         &.active {
           transform: rotate(180deg);
           transition: 0.2s all ease-in-out;
@@ -135,6 +147,31 @@ export default {
         }
       }
     }
+  }
+
+  @media (max-width: 767.98px) {
+    width: 100%;
+
+    &__menu {
+      &__current {
+        font-size: 12px;
+
+        svg {
+          width: 15px;
+          height: 9px;
+        }
+      }
+
+      &__options {
+        span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 413px) {
+    width: 90%;
   }
 }
 </style>

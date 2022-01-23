@@ -4,7 +4,7 @@
     <p>/</p>
     <p>Системы хранения</p>
     <p>/</p>
-    <p>Комплекты стеллажных систем</p>
+    <p class="active">Комплекты стеллажных систем</p>
   </div>
 </template>
 
@@ -23,5 +23,19 @@ export default {}
   flex-direction: row;
   gap: 1rem;
   margin-bottom: 32px;
+
+  p{
+
+    &.active{
+      color: #333333;
+    }
+  }
+
+  @media (max-width: 767.98px){
+  	font-size: 2.5vw;
+    gap: .5rem;
+    margin-bottom: 8px;
+    justify-content: center;
+  }
 }
 </style>

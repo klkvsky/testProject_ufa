@@ -34,7 +34,7 @@ footer {
 
     a {
       font-weight: 600;
-      color: #4bb543;
+      color: #f65700;
       text-decoration: none;
     }
   }

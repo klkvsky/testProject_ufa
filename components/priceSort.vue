@@ -1,10 +1,10 @@
 <template>
-  <div class="sortRow__item">
+  <div class="sortRow__item" tabindex="1" @blur="unfocused">
     <p>Сортировать по:</p>
 
     <div class="sortRow__item__menu" @click="toggleMenu">
       <div class="sortRow__item__menu__current">
-        {{this.$store.state.currentSorting}}
+        {{ this.$store.state.currentSorting }}
 
         <svg
           width="18"
@@ -23,8 +23,12 @@
         </svg>
       </div>
       <div class="sortRow__item__menu__options" :class="{ active: menuToggle }">
-        <span @click="changeSorting('Цена по возрастанию')"> Цена по возрастанию </span>
-        <span @click="changeSorting('Цена по убыванию')"> Цена по убыванию </span>
+        <span @click="changeSorting('Цена по возрастанию')">
+          Цена по возрастанию
+        </span>
+        <span @click="changeSorting('Цена по убыванию')">
+          Цена по убыванию
+        </span>
       </div>
     </div>
   </div>
@@ -41,95 +45,12 @@ export default {
     toggleMenu() {
       this.menuToggle = !this.menuToggle
     },
-    changeSorting(type){
-      this.$store.commit("changeSorting", type);
-    }
+    changeSorting(type) {
+      this.$store.commit('changeSorting', type)
+    },
+    unfocused() {
+      this.menuToggle = false
+    },
   },
 }
 </script>
-
-<style scoped lang="scss">
-.sortRow__item {
-  width: 288px;
-
-  p {
-    color: #4f4f4f;
-    font-size: 12px;
-    padding: 0.5rem 1rem;
-  }
-
-  &__menu {
-    position: relative;
-
-    &__current {
-      height: 40px;
-      padding: 0.5rem 1rem;
-      background-color: #f2f2f2;
-
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-
-      font-weight: 400;
-      font-size: 14px;
-      cursor: pointer;
-      transition: 0.1s all ease-in-out;
-
-      svg {
-        transition: 0.2s all ease-in-out;
-        &.active {
-          transform: rotate(180deg);
-          transition: 0.2s all ease-in-out;
-        }
-      }
-
-      &:hover {
-        background-color: #dadada;
-        transition: 0.15s all ease-in-out;
-      }
-    }
-
-    &__options {
-      width: 100%;
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      background-color: #f2f2f2;
-
-      transform: translateY(-40px);
-      opacity: 0;
-      z-index: -50;
-      transition: 0.1s all ease-in-out;
-
-      &.active {
-        transform: translateY(0);
-        opacity: 1;
-        z-index: 10;
-        transition: 0.2s transform ease-in-out, 0.2s opacity ease-in-out, 0.001s z-index ease-in-out;
-      }
-
-      span {
-        width: 100%;
-        padding: 0.5rem 1rem;
-        font-weight: 400;
-        font-size: 14px;
-
-        cursor: pointer;
-        transition: 0.001s all ease-in-out;
-
-        &:hover {
-          background-color: #dadada;
-          transition: 0.2s all ease-in-out;
-        }
-
-        &:last-child {
-          padding-bottom: 0.8rem;
-        }
-      }
-    }
-  }
-}
-</style>
