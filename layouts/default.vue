@@ -2,7 +2,7 @@
   <div class="container">
     <breadcrumbs />
     <Nuxt />
-    <!-- <footerComponent /> -->
+    <footerComponent />
   </div>
 </template>
 
@@ -21,6 +21,7 @@ export default {
 <style scoped lang="scss">
 .container{
     margin: 2rem 2%;
+    margin-bottom: 0;
 }
 </style>
 

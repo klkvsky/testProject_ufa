@@ -6,7 +6,7 @@
       <materialSort />
     </div>
     <div class="cardRow">
-      <card :item="item" v-for="item in catalog" :key="item.id"/>
+      <card :item="item" v-for="item in sortFunc" :key="item.id" />
     </div>
   </main>
 </template>
@@ -16,19 +16,44 @@ import priceSort from '~/components/priceSort.vue'
 import materialSort from '~/components/materialSort.vue'
 import card from '~/components/card.vue'
 
-import catalog from '~/static/json/items.json';
+import catalog from '~/static/json/items.json'
+
+import { mapGetters } from 'vuex'
 
 export default {
   layout: 'default',
   components: {
     priceSort,
     materialSort,
-    card
+    card,
   },
   data() {
     return {
-      catalog
+      catalog,
     }
+  },
+  // computed: mapGetters(["getCatalog"]),
+  computed: {
+    filterMaterial() {
+      return this.catalog.filter((item) => {
+        return item.material === parseInt(this.$store.state.currentMaterial.id)
+      })
+    },
+    sortFunc() {
+      if (this.$store.state.currentSorting === 'Цена по возрастанию') {
+        this.filterMaterial.sort((x, y) => {
+          return parseInt(x.price.current_price) > parseInt(y.price.current_price)
+        })
+        return this.filterMaterial
+      } else if (this.$store.state.currentSorting === 'Цена по убыванию') {
+        this.filterMaterial.sort((x, y) => {
+          return parseInt(x.price.current_price) < parseInt(y.price.current_price)
+        })
+        return this.filterMaterial
+      } else {
+        // return this.filterMaterial
+      }
+    },
   },
 }
 </script>
@@ -48,10 +73,10 @@ main {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 24px;
-    margin-top: calc(32px - .5rem);
+    margin-top: calc(32px - 0.5rem);
   }
 
-  .cardRow{
+  .cardRow {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }

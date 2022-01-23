@@ -4,7 +4,7 @@
 
     <div class="sortRow__item__menu" @click="toggleMenu">
       <div class="sortRow__item__menu__current">
-        Цена по возрастанию
+        {{this.$store.state.currentSorting}}
 
         <svg
           width="18"
@@ -23,8 +23,8 @@
         </svg>
       </div>
       <div class="sortRow__item__menu__options" :class="{ active: menuToggle }">
-        <span> Цена по возрастанию </span>
-        <span> Цена по убыванию </span>
+        <span @click="changeSorting('Цена по возрастанию')"> Цена по возрастанию </span>
+        <span @click="changeSorting('Цена по убыванию')"> Цена по убыванию </span>
       </div>
     </div>
   </div>
@@ -41,6 +41,9 @@ export default {
     toggleMenu() {
       this.menuToggle = !this.menuToggle
     },
+    changeSorting(type){
+      this.$store.commit("changeSorting", type);
+    }
   },
 }
 </script>

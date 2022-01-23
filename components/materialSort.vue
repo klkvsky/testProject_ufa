@@ -4,7 +4,7 @@
 
     <div class="sortRow__item__menu" @click="toggleMenu">
       <div class="sortRow__item__menu__current">
-        Металл
+        {{this.$store.state.currentMaterial.name}}
 
         <svg
           width="18"
@@ -23,7 +23,7 @@
         </svg>
       </div>
       <div class="sortRow__item__menu__options" :class="{ active: menuToggle }">
-        <span v-for="material in materialList" :key="material.id">
+        <span @click="changeMaterial(material)" v-for="material in materialList" :key="material.id">
           {{ material.name }}
         </span>
       </div>
@@ -45,6 +45,9 @@ export default {
     toggleMenu() {
       this.menuToggle = !this.menuToggle
     },
+    changeMaterial(material){
+      this.$store.commit("changeMaterial", material);
+    }
   },
 }
 </script>

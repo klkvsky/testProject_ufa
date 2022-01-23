@@ -21,14 +21,13 @@ export default {
 <style scoped lang="scss">
 footer {
   width: 100%;
-  height: 5rem;
   padding: 0.5rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 3rem;
 
   p {
-    font-family: Source Sans Pro;
     font-weight: 400;
     color: #3f3f3f;
     text-align: center;
