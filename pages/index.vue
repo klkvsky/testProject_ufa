@@ -2,10 +2,13 @@
   <main>
     <h1>Комплекты стеллажных систем</h1>
     <div class="sortRow">
-      <priceSort />
+      <!-- Компонент сортировки по цене-->
+      <priceSort /> 
+      <!-- Компонент фильтрации по материалам -->
       <materialSort />
     </div>
     <div class="cardRow">
+      <!-- Компонент карточки, в который мы передаем в виде props профильтрованные данные из json файла, с ключом по id товара -->
       <card :item="item" v-for="item in sortFunc" :key="item.id" />
     </div>
   </main>
@@ -16,8 +19,6 @@ import priceSort from '~/components/priceSort.vue'
 import materialSort from '~/components/materialSort.vue'
 import card from '~/components/card.vue'
 
-import Vue from 'vue'
-
 export default {
   layout: 'default',
   components: {
@@ -26,11 +27,13 @@ export default {
     card,
   },
   computed: {
+    // Функция для фильтрации товаров по материалам
     filterMaterial() {
       return this.$store.state.mainCatalog.filter((item) => {
         return item.material === parseInt(this.$store.state.currentMaterial.id)
       })
     },
+    // Функция сортировки товаров по цене, получает отфильтрованный массив из  filterMaterial()
     sortFunc() {
       if (this.$store.state.currentSorting === 'Цена по возрастанию') {
         this.filterMaterial.sort((x, y) => {
@@ -49,15 +52,8 @@ export default {
       }
     },
   },
-  methods: {
-    setLocalStorage() {
-      localStorage.setItem(
-        'mainCatalog',
-        JSON.stringify(this.$store.state.mainCatalog)
-      )
-    },
-  },
   mounted() {
+    // На загрузке вызываем коммит для проверки localStorage на сохранившиеся данные
     this.$store.commit('checkLocalStorage')
   },
 }
@@ -88,6 +84,7 @@ main {
     gap: 8px;
   }
 
+  // Медиа query для средних мониторов
   @media (max-width: 1366px) {
     .cardRow {
       width: 100%;
@@ -96,6 +93,7 @@ main {
     }
   }
 
+  // Медиа query для маленьких мониторов и планшетов
   @media (max-width: 991.98px) {
     .cardRow {
       width: 100%;
@@ -104,6 +102,7 @@ main {
     }
   }
 
+  // Медиа query для телефонов
   @media (max-width: 767.98px) {
     h1 {
       font-size: 6vw;
@@ -127,6 +126,7 @@ main {
     }
   }
 
+  // Медиа query для small телефонов
   @media (max-width: 413px) {
     .sortRow {
       flex-direction: column;

@@ -1,8 +1,11 @@
 <template>
   <div class="container">
     <div class="container__child">
-      <breadcrumbs />
+      <!-- Компонент пути страницы, статичный на данном релизе -->
+      <breadcrumbs /> 
+      <!-- Основной компонент страницы -->
       <Nuxt />
+      <!-- Компонент футера -->
       <footerComponent />
     </div>
   </div>
@@ -28,6 +31,7 @@ export default {
   justify-content: center;
   overflow-x: hidden;
 
+  // Второй контейнер для центровки обьекта на больших мониторах, чтобы не растягивался контент
   &__child {
     display: flex;
     flex-direction: column;
@@ -36,6 +40,7 @@ export default {
 }
 </style>
 
+<!-- Не scoped элемент style, потому что данные стили нужны для более корректного управления и отображения элементов -->
 <style lang="scss">
 * {
   margin: 0;

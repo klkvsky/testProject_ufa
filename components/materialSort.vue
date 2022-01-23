@@ -1,9 +1,12 @@
 <template>
+  <!-- tabindex, @blur вызывают функцию unfocused для закрытия меню при клике вне компонента -->
   <div class="sortRow__item" tabindex="1" @blur="unfocused">
     <p>Материал</p>
 
+    <!-- Вызываем функцию toggleMenu для открытия/закрытия меню -->
     <div class="sortRow__item__menu" @click="toggleMenu">
       <div class="sortRow__item__menu__current">
+        <!-- Получаем данные о текующем методе фильтрации из стора -->
         {{ this.$store.state.currentMaterial.name }}
 
         <svg
@@ -21,6 +24,8 @@
         </svg>
       </div>
       <div class="sortRow__item__menu__options" :class="{ active: menuToggle }">
+      <!-- При клике вызываем функцию для коммита в стор с информацией о выбранном методе фильтрации -->
+      <!-- v-for через json с информацией о доступных материалах -->
         <span
           @click="changeMaterial(material)"
           v-for="material in materialList"
@@ -39,17 +44,20 @@ import materialList from '~/static/json/materials.json'
 export default {
   data() {
     return {
-      menuToggle: false,
-      materialList,
+      menuToggle: false, // Обьект отвечающий за состояние меню (открытое / закрытое )
+      materialList, // Обьект из JSON'а с материалами
     }
   },
   methods: {
+    // Метод переключающий состояние меню
     toggleMenu() {
       this.menuToggle = !this.menuToggle
     },
+    // Метод вызывающий в сторе mutation для изменения типа фильтрации
     changeMaterial(material) {
       this.$store.commit('changeMaterial', material)
     },
+    // Метод закрывающий меню при клике вне компонента
     unfocused() {
       this.menuToggle = false
     },

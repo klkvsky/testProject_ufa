@@ -1,5 +1,6 @@
 <template>
   <div class="card">
+    <!-- Элемент скидки, активный только если у item'а есть старая цена -->
     <div class="card__isSale" v-if="item.price.old_price">
       <p>Скидка</p>
     </div>
@@ -8,6 +9,7 @@
     </div>
     <div class="card__body">
       <div class="card__body__txt">
+        <!-- Если в JSON'e указан код предмета, показываем его -->
         <p v-if="item.code">
           {{ item.code }}
         </p>
@@ -24,6 +26,7 @@
         </div>
       </div>
       <div class="card__body__cta">
+        <!-- При клике вызываем метод для добавления обьекта в корзину -->
         <div
           class="card__body__cta__cart"
           :class="{ added: item.inCart }"
@@ -58,9 +61,10 @@
             />
           </svg>
         </div>
+        <!-- При клике вызываем метод для добавления товара в избранное -->
         <div
           class="card__body__cta__fav"
-          :class="{ isFavorite: item.isFavortie }"
+          :class="{ isFavorite: item.isFavorite }"
           @click="toggleFavorite"
         >
           <svg
@@ -83,18 +87,21 @@
 
 <script>
 export default {
-  props: ['item'],
+  props: ['item'], // проп получаемый из index.vue с данными о товаре
   methods: {
+    // Метод для добавления товара в избранное, вызывает mutation в сторе с данными о выбранном товаре, и активирует метод для сохранения данных в localStore
     toggleFavorite() {
       // this.isFavorite = !this.isFavorite
       this.$store.commit('addToFav', this.item)
       this.setLocalStorage()
     },
+    // Метод для добавления товара в корзину, вызывает mutation в сторе с данными о выбранном товаре, и активирует метод для сохранения данных в localStore
     toggleCart() {
       // this.isFavorite = !this.isFavorite
       this.$store.commit('addToCart', this.item)
       this.setLocalStorage()
     },
+    // Метод для сохранения данных в localStorage
     setLocalStorage() {
       localStorage.setItem(
         'mainCatalog',
