@@ -16,9 +16,7 @@ import priceSort from '~/components/priceSort.vue'
 import materialSort from '~/components/materialSort.vue'
 import card from '~/components/card.vue'
 
-import catalog from '~/static/json/items.json'
-
-import { mapGetters } from 'vuex'
+import Vue from 'vue'
 
 export default {
   layout: 'default',
@@ -27,39 +25,47 @@ export default {
     materialSort,
     card,
   },
-  data() {
-    return {
-      catalog,
-    }
-  },
-  // computed: mapGetters(["getCatalog"]),
   computed: {
     filterMaterial() {
-      return this.catalog.filter((item) => {
+      return this.$store.state.mainCatalog.filter((item) => {
         return item.material === parseInt(this.$store.state.currentMaterial.id)
       })
     },
     sortFunc() {
       if (this.$store.state.currentSorting === 'Цена по возрастанию') {
         this.filterMaterial.sort((x, y) => {
-          return parseInt(x.price.current_price) > parseInt(y.price.current_price)
+          return (
+            parseInt(x.price.current_price) > parseInt(y.price.current_price)
+          )
         })
         return this.filterMaterial
       } else if (this.$store.state.currentSorting === 'Цена по убыванию') {
         this.filterMaterial.sort((x, y) => {
-          return parseInt(x.price.current_price) < parseInt(y.price.current_price)
+          return (
+            parseInt(x.price.current_price) < parseInt(y.price.current_price)
+          )
         })
         return this.filterMaterial
-      } else {
-        // return this.filterMaterial
       }
     },
+  },
+  methods: {
+    setLocalStorage() {
+      localStorage.setItem(
+        'mainCatalog',
+        JSON.stringify(this.$store.state.mainCatalog)
+      )
+    },
+  },
+  mounted() {
+    this.$store.commit('checkLocalStorage')
   },
 }
 </script>
 
 <style lang="scss">
 main {
+  min-height: 100vh;
   h1 {
     font-weight: 600;
     font-size: 36px;
